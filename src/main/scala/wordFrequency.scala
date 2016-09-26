@@ -1,12 +1,8 @@
 package org.wordfrequency
 
 import java.io._
-import play.api.libs.json._
 import scala.collection.parallel.ParMap
-import scala.concurrent.Future
-import scala.concurrent.Await
-import scala.concurrent.duration._
-import scala.concurrent.ExecutionContext.Implicits.global
+import scala.collection.parallel.ParSeq
 
 object WordFrequency {
 
@@ -16,7 +12,7 @@ object WordFrequency {
   def findRecords(recordsBufferedReader:BufferedReader) = {
     val recordsFile = Stream.continually(recordsBufferedReader.readLine()).takeWhile(_ != null)
     val records =
-      for (line <- recordsFile) yield {
+      for (line <- recordsFile.par) yield {
         line.split(",").toSet
       }
     records
@@ -25,7 +21,7 @@ object WordFrequency {
   def findQueries(queriesBufferedReader:BufferedReader) = {
     val queriesFile = Stream.continually(queriesBufferedReader.readLine()).takeWhile(_ != null)
     val queries =
-      for (line <- queriesFile) yield {
+      for (line <- queriesFile.par) yield {
         line.split(",").toSet
       }
     queries
@@ -37,31 +33,29 @@ object WordFrequency {
   }
 
   def mapToString(r:ParMap[String,Int]) = {
-    for ((k, v) <- r) yield {
+    for ((k, v) <- r.par) yield {
       s""""$k": $v"""
     }
   }
 
-  def process(queries:IndexedSeq[Set[String]], records:IndexedSeq[Set[String]], writer:BufferedWriter) = {
-    val futureResults =
-      for (query <- queries) yield Future{
-        val results =
-          for (record <- records) yield {
+  def process(queries:ParSeq[Set[String]], records:ParSeq[Set[String]], writer:BufferedWriter) = {
+    val parResults =
+      for (query <- queries) yield {
+        val r =
+          for (record <- records.par) yield {
             query subsetOf record match {
               case true => record -- query
               case false => Set[String]()
             }
           }
-
-        results.toList.flatten.par.groupBy(identity).mapValues(_.size)
+        r.flatten.groupBy(identity).mapValues(_.size)
       }
 
-    val results = Await.result(Future.sequence(futureResults), 20 seconds)
-    for (r <- results) {
-      val o = mapToString(r = r).mkString(", ")
-      writer.write(s"{$o}")
-      writer.newLine()
-    }
+      for (r <- parResults.par) {
+        val o = mapToString(r = r).mkString(", ")
+        writer.write(s"{$o}")
+        writer.newLine()
+      }
 
   }
 
@@ -71,8 +65,8 @@ object WordFrequency {
     val queriesBufferedReader = createQueriesBufferedReader(args(0))
     val recordsBufferedReader = createRecordsBufferedReader(args(1))
     val writer = writeOutput(args(2))
-    val records = findRecords(recordsBufferedReader = recordsBufferedReader).toIndexedSeq
-    val queries = findQueries(queriesBufferedReader = queriesBufferedReader).toIndexedSeq
+    val records = findRecords(recordsBufferedReader = recordsBufferedReader)
+    val queries = findQueries(queriesBufferedReader = queriesBufferedReader)
     process(queries = queries, records = records, writer = writer)
     queriesBufferedReader.close()
     recordsBufferedReader.close()
