@@ -52,7 +52,7 @@ object WordFrequency {
               case false => Set[String]()
             }
           }
-        
+
         results.toList.flatten.par.groupBy(identity).mapValues(_.size)
       }
 
@@ -74,7 +74,6 @@ object WordFrequency {
     val records = findRecords(recordsBufferedReader = recordsBufferedReader).toIndexedSeq
     val queries = findQueries(queriesBufferedReader = queriesBufferedReader).toIndexedSeq
     process(queries = queries, records = records, writer = writer)
-
     queriesBufferedReader.close()
     recordsBufferedReader.close()
     writer.close()
