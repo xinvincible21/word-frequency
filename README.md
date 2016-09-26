@@ -1,3 +1,14 @@
+prerequisites: sbt
+sbt is easy to install by using homebrew 
+installation instructions at (http://brew.sh/)
+brew install sbt
+
+steps to run:
+1. cd into word-frequency directory
+2. sbt
+3. console
+4. import org.wordfrequency.WordFrequency
+5. WordFrequency.main(args = Array("queries2.txt", "records2.txt", "output2.txt"))
 
 Word Frequency
 
