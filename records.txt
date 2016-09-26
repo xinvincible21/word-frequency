@@ -1,0 +1,4 @@
+red,yellow,green,black
+red,green,blue,black
+yellow,green,blue
+yellow,blue,black
