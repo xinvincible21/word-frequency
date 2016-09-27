@@ -29,7 +29,7 @@ object WordFrequency {
     queries
   }
 
-  def writeOutput(filepath:String) = {
+  def createWriter(filepath:String) = {
     val writer = new BufferedWriter(new FileWriter(filepath))
     writer
   }
@@ -40,7 +40,7 @@ object WordFrequency {
     }
   }
 
-  def process(queries:IndexedSeq[Set[String]], records:IndexedSeq[Set[String]], writer:BufferedWriter) = {
+  def process(queries:IndexedSeq[Set[String]], records:IndexedSeq[Set[String]], outputFilepath:String) = {
     val futureResults =
       for (query <- queries) yield Future{
         val results =
@@ -54,13 +54,22 @@ object WordFrequency {
         results.toList.flatten.groupBy(identity).mapValues(_.size)
       }
 
-    val results = Await.result(Future.sequence(futureResults), 20 seconds)
-    for (r <- results) {
-      val o = mapToString(r = r).mkString(", ")
-      writer.write(s"{$o}")
+    Future.sequence(futureResults).map { results =>
+      val data =
+        for (r <- results) yield {
+          mapToString(r = r).mkString(", ")
+        }
+      write(data = data, outputFilepath = outputFilepath)
+    }
+  }
+
+  def write(outputFilepath:String, data:IndexedSeq[String]) = {
+    val writer = createWriter(filepath = outputFilepath)
+    for(d <- data) {
+      writer.write(s"{$d}")
       writer.newLine()
     }
-
+    writer.close()
   }
 
   def main(args: Array[String]) = {
@@ -68,12 +77,11 @@ object WordFrequency {
     if(args.length != 3) println("usage: queriesFilepath recordsFilepath outputFilepath")
     val queriesBufferedReader = createQueriesBufferedReader(args(0))
     val recordsBufferedReader = createRecordsBufferedReader(args(1))
-    val writer = writeOutput(args(2))
+     val outputFilepath = args(2)
     val records = findRecords(recordsBufferedReader = recordsBufferedReader).toIndexedSeq
     val queries = findQueries(queriesBufferedReader = queriesBufferedReader).toIndexedSeq
-    process(queries = queries, records = records, writer = writer)
+    process(queries = queries, records = records, outputFilepath = outputFilepath)
     queriesBufferedReader.close()
     recordsBufferedReader.close()
-    writer.close()
   }
 }
