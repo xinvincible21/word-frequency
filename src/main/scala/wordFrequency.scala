@@ -51,7 +51,7 @@ object WordFrequency {
             }
           }
 
-        results.toList.flatten.groupBy(identity).mapValues(_.size)
+        results.flatten.groupBy(identity).mapValues(_.size)
       }
 
     Future.sequence(futureResults).map { results =>
