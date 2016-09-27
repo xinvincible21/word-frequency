@@ -74,14 +74,17 @@ object WordFrequency {
 
   def main(args: Array[String]) = {
 
-    if(args.length != 3) println("usage: queriesFilepath recordsFilepath outputFilepath")
-    val queriesBufferedReader = createQueriesBufferedReader(args(0))
-    val recordsBufferedReader = createRecordsBufferedReader(args(1))
-     val outputFilepath = args(2)
-    val records = findRecords(recordsBufferedReader = recordsBufferedReader).toIndexedSeq
-    val queries = findQueries(queriesBufferedReader = queriesBufferedReader).toIndexedSeq
-    process(queries = queries, records = records, outputFilepath = outputFilepath)
-    queriesBufferedReader.close()
-    recordsBufferedReader.close()
+    args.length != 3 match {
+      case true => println("usage: queriesFilepath recordsFilepath outputFilepath")
+      case false =>
+        val queriesBufferedReader = createQueriesBufferedReader(args(0))
+        val recordsBufferedReader = createRecordsBufferedReader(args(1))
+        val outputFilepath = args(2)
+        val records = findRecords(recordsBufferedReader = recordsBufferedReader).toIndexedSeq
+        val queries = findQueries(queriesBufferedReader = queriesBufferedReader).toIndexedSeq
+        process(queries = queries, records = records, outputFilepath = outputFilepath)
+        queriesBufferedReader.close()
+        recordsBufferedReader.close()
+    }
   }
 }
