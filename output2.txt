@@ -1,15 +1,15 @@
-{"remonstrated": 1, "Fafnir": 1, "demountable": 1, "indexable": 1, "crewing": 1, "Cesare": 1, "Siciliana": 1, "customized": 1, "carbonates": 1, "crusader": 1, "wavefront": 1, "blazer": 1, "observes": 1, "surgical": 1, "raise": 1, "multiword": 1, "cataract": 1, "Hartley": 1, "delegated": 1, "Parisianizations": 1, "Tallahatchie": 1, "Eduardo": 1, "pacts": 1, "whipper": 1, "sensing": 1, "sanitation": 1}
-{"deeding": 1, "waterway": 1, "wealths": 1, "alternations": 1, "bingo": 1, "acquiescence": 1, "moonlight": 1}
-{"Gabon": 1, "abuse": 1, "Lila": 1, "pion": 1, "carbonates": 1, "Isolde": 1, "safe": 1, "observes": 1, "exited": 1, "amatory": 1, "furious": 1, "shuttling": 1}
-{"adaptor": 1, "Newport": 1, "waterway": 1, "observes": 1, "affirmed": 1, "limelight": 1, "resented": 1}
-{"littered": 1, "terror": 1, "sphinx": 1, "pledged": 1}
-{"recommend": 1, "deceptions": 1, "pester": 1, "revive": 1, "Newport": 1, "invests": 1, "actuals": 1, "Edmondson": 1, "Verne": 1, "emigrating": 1, "argument": 1, "repulsion": 1, "ledge": 1}
+{"blazer": 1, "carbonates": 1, "cataract": 1, "Cesare": 1, "crewing": 1, "crusader": 1, "customized": 1, "delegated": 1, "demountable": 1, "Eduardo": 1, "Fafnir": 1, "Hartley": 1, "indexable": 1, "multiword": 1, "observes": 1, "pacts": 1, "Parisianizations": 1, "raise": 1, "remonstrated": 1, "sanitation": 1, "sensing": 1, "Siciliana": 1, "surgical": 1, "Tallahatchie": 1, "wavefront": 1, "whipper": 1}
+{"acquiescence": 1, "alternations": 1, "bingo": 1, "deeding": 1, "moonlight": 1, "waterway": 1, "wealths": 1}
+{"abuse": 1, "amatory": 1, "carbonates": 1, "exited": 1, "furious": 1, "Gabon": 1, "Isolde": 1, "Lila": 1, "observes": 1, "pion": 1, "safe": 1, "shuttling": 1}
+{"adaptor": 1, "affirmed": 1, "limelight": 1, "Newport": 1, "observes": 1, "resented": 1, "waterway": 1}
+{"littered": 1, "pledged": 1, "sphinx": 1, "terror": 1}
+{"actuals": 1, "argument": 1, "deceptions": 1, "Edmondson": 1, "emigrating": 1, "invests": 1, "ledge": 1, "Newport": 1, "pester": 1, "recommend": 1, "repulsion": 1, "revive": 1, "Verne": 1}
 {"erect": 1, "jitter": 1, "shrinkable": 1}
-{"fathoms": 1, "influential": 1, "crewing": 1, "overshadowing": 1, "summarily": 1, "seasonings": 2, "several": 1, "pledged": 1, "timeout": 1, "congregating": 1}
-{"satyr": 1, "bowler": 1, "touching": 1, "watching": 1, "terror": 1, "freon": 1, "waterproof": 1, "harnessed": 1, "covenant": 1, "edible": 1, "thinnest": 1, "Tijuana": 1, "petition": 1, "Waco": 1, "sweeping": 1, "inaudible": 1, "explainers": 1, "furious": 1, "Romanizer": 1, "haphazardly": 1, "Yuri": 1}
-{"Paynes": 1, "residence": 1, "eavesdropper": 1, "liars": 1, "tenor": 1, "crusader": 1, "wealths": 1, "engineers": 1, "befit": 1, "fill": 1, "maintenances": 1, "responsive": 1, "faders": 1, "resented": 1}
-{"patty": 2, "spell": 1, "dubious": 1, "reef": 1, "issued": 1, "alternations": 1, "Kowalewski": 1, "sainthood": 1, "Legendre": 1}
-{"Albanian": 1, "residence": 1, "liking": 1}
-{"Minneapolis": 1, "swish": 1, "pion": 1, "locksmith": 1, "dashing": 1, "fluting": 1, "perpendicularly": 1, "precondition": 1, "Emily": 1, "desperation": 1}
+{"congregating": 1, "crewing": 1, "fathoms": 1, "influential": 1, "overshadowing": 1, "pledged": 1, "seasonings": 2, "several": 1, "summarily": 1, "timeout": 1}
+{"bowler": 1, "covenant": 1, "edible": 1, "explainers": 1, "freon": 1, "furious": 1, "haphazardly": 1, "harnessed": 1, "inaudible": 1, "petition": 1, "Romanizer": 1, "satyr": 1, "sweeping": 1, "terror": 1, "thinnest": 1, "Tijuana": 1, "touching": 1, "Waco": 1, "watching": 1, "waterproof": 1, "Yuri": 1}
+{"befit": 1, "crusader": 1, "eavesdropper": 1, "engineers": 1, "faders": 1, "fill": 1, "liars": 1, "maintenances": 1, "Paynes": 1, "resented": 1, "residence": 1, "responsive": 1, "tenor": 1, "wealths": 1}
+{"alternations": 1, "dubious": 1, "issued": 1, "Kowalewski": 1, "Legendre": 1, "patty": 2, "reef": 1, "sainthood": 1, "spell": 1}
+{"Albanian": 1, "liking": 1, "residence": 1}
+{"dashing": 1, "desperation": 1, "Emily": 1, "fluting": 1, "locksmith": 1, "Minneapolis": 1, "perpendicularly": 1, "pion": 1, "precondition": 1, "swish": 1}
 {"exercises": 1, "Theodosian": 1}
-{"egging": 1, "edible": 1, "pinochle": 1, "exited": 1, "pulsar": 1, "recitations": 1, "accusations": 1}
+{"accusations": 1, "edible": 1, "egging": 1, "exited": 1, "pinochle": 1, "pulsar": 1, "recitations": 1}

@@ -34,8 +34,10 @@ object WordFrequency {
     writer
   }
 
-  def mapToString(r:Map[String,Int]) = {
-    for ((k, v) <- r) yield {
+  def mapToString(m:Map[String,Int]) = {
+
+
+    for ((k, v) <- m.toList.sortBy(_._1.toLowerCase)) yield {
       s""""$k": $v"""
     }
   }
@@ -57,7 +59,7 @@ object WordFrequency {
     Future.sequence(futureResults).map { results =>
       val data =
         for (r <- results) yield {
-          mapToString(r = r).mkString(", ")
+          mapToString(m = r).mkString(", ")
         }
       write(data = data, outputFilepath = outputFilepath)
     }

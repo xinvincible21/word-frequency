@@ -1,2 +1,2 @@
-{"green": 1, "black": 1}
-{"yellow": 1, "red": 2, "blue": 1}
+{"black": 1, "green": 1}
+{"blue": 1, "red": 2, "yellow": 1}
