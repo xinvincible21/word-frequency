@@ -8,25 +8,15 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 object WordFrequency {
 
-  def createRecordsBufferedReader(filepath:String) = new BufferedReader(new FileReader(new File(filepath)))
-  def createQueriesBufferedReader(filepath:String) = new BufferedReader(new FileReader(new File(filepath)))
+  def createBufferedReader(filepath:String) = new BufferedReader(new FileReader(new File(filepath)))
 
-  def findRecords(recordsBufferedReader:BufferedReader) = {
-    val recordsFile = Stream.continually(recordsBufferedReader.readLine()).takeWhile(_ != null)
-    val records =
-      for (line <- recordsFile) yield {
+  def findData(bufferedReader:BufferedReader) = {
+    val file = Stream.continually(bufferedReader.readLine()).takeWhile(_ != null)
+    val data =
+      for (line <- file) yield {
         line.split(",").toSet
       }
-    records
-  }
-
-  def findQueries(queriesBufferedReader:BufferedReader) = {
-    val queriesFile = Stream.continually(queriesBufferedReader.readLine()).takeWhile(_ != null)
-    val queries =
-      for (line <- queriesFile) yield {
-        line.split(",").toSet
-      }
-    queries
+    data
   }
 
   def createWriter(filepath:String) = {
@@ -79,11 +69,11 @@ object WordFrequency {
     args.length != 3 match {
       case true => println("usage: queriesFilepath recordsFilepath outputFilepath")
       case false =>
-        val queriesBufferedReader = createQueriesBufferedReader(args(0))
-        val recordsBufferedReader = createRecordsBufferedReader(args(1))
+        val queriesBufferedReader = createBufferedReader(args(0))
+        val recordsBufferedReader = createBufferedReader(args(1))
         val outputFilepath = args(2)
-        val records = findRecords(recordsBufferedReader = recordsBufferedReader).toIndexedSeq
-        val queries = findQueries(queriesBufferedReader = queriesBufferedReader).toIndexedSeq
+        val records = findData(bufferedReader = recordsBufferedReader).toIndexedSeq
+        val queries = findData(bufferedReader = queriesBufferedReader).toIndexedSeq
         process(queries = queries, records = records, outputFilepath = outputFilepath)
         queriesBufferedReader.close()
         recordsBufferedReader.close()
