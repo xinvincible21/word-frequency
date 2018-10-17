@@ -1,5 +1,6 @@
 package org.wordfrequency
 
+
 import java.io._
 import scala.concurrent.Future
 import scala.concurrent.Await
@@ -8,9 +9,9 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 object WordFrequency {
 
-  def createBufferedReader(filepath:String, delimiter:String = ",") = new BufferedReader(new FileReader(new File(filepath)))
+  def createBufferedReader(filepath:String) = new BufferedReader(new FileReader(new File(filepath)))
 
-  def findData(bufferedReader:BufferedReader) = {
+  def findData(bufferedReader:BufferedReader, delimeter:String = ",") = {
     val file = Stream.continually(bufferedReader.readLine()).takeWhile(_ != null)
     val data =
       for (line <- file) yield {
