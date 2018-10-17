@@ -8,13 +8,13 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 object WordFrequency {
 
-  def createBufferedReader(filepath:String) = new BufferedReader(new FileReader(new File(filepath)))
+  def createBufferedReader(filepath:String, delimiter:String = ",") = new BufferedReader(new FileReader(new File(filepath)))
 
   def findData(bufferedReader:BufferedReader) = {
     val file = Stream.continually(bufferedReader.readLine()).takeWhile(_ != null)
     val data =
       for (line <- file) yield {
-        line.split(",").toSet
+        line.split(delimeter).toSet
       }
     data
   }
@@ -25,8 +25,6 @@ object WordFrequency {
   }
 
   def mapToString(m:Map[String,Int]) = {
-
-
     for ((k, v) <- m.toList.sortBy(_._1.toLowerCase)) yield {
       s""""$k": $v"""
     }
